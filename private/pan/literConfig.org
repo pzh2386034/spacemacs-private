@@ -1,0 +1,43 @@
+** test
+#+BEGIN_SRC emacs-lisp
+;; test
+(require 'org-install)
+#+END_SRC
+** 高亮匹配括号
+#+BEGIN_SRC emacs-lisp
+;;(defun hidden-dos-eol ()
+#+END_SRC
+** Bonus Time
+Use org-capture to take notes
+#+BEGIN_SRC emacs-lisp
+#+END_SRC
+** 设置默认编码格式为utf-8
+#+BEGIN_SRC emacs-lisp
+(set-language-environment "UTF-8")
+#+END_SRC
+** 设置org mode模板
+#+BEGIN_SRC emacs-lisp
+(with-eval-after-load 'org
+
+(setq org-src-fortify-natively t)
+(setq org-agenda-file-gtd "~/workspace/org/agenda/")
+      (setq org-capture-templates
+            '(("t" "Todo" entry (file+headline org-agenda-file-gtd "工作安排")
+               "* TODO [#B] %?\n  %i\n"
+               :empty-lines 1)))
+(global-set-key (kbd "C-c r") 'org-capture)
+;;(require 'org-pomodoro)
+
+)
+#+END_SRC
+** 查找文件相关操作 
+*** = SPC p f =
+#+BEGIN_SRC emacs-lisp
+(defun panzehua/open-file-with-projectile-or-counsel-git ()
+   (interactive)
+   (if (panzehua/vcs-project-root)
+       (counsel-git)
+     (if (projectile-project-p)
+         (projectile-find-file)
+        (ido-find-file))))
+#+END_SRC
