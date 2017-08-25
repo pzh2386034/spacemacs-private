@@ -75,19 +75,52 @@
 ;;                (find-alternate-file "..")))))
 
 
+(defun pan/load-yasnippet ()
+  (interactive)
+  (unless yas-global-mode
+    (progn
+      (yas-global-mode 1)
+      (setq my-snippet-dir (expand-file-name "~/.spacemacs.d/snippets"))
+      (setq yas-snippet-dirs  my-snippet-dir)
+      (yas-load-directory my-snippet-dir)
+      (setq yas-wrap-around-region t)))
+  (yas-minor-mode 1))
 (defconst pan-packages
   '(
     fcitx
     youdao-dictionary
     elpy
+    auto-complete
+    yasnippet
     )
-)
+  )
+(defun pan/init-yasnippet()
+  (use-package yasnippet
+    :defer t
+    :init
+    ))
+(defun pan/post-init-yasnippet ()
+  (progn
+    (set-face-background 'secondary-selection "gray")
+    (setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))
+    (spacemacs/add-to-hooks 'pan/load-yasnippet '(prog-mode-hook
+                                                            markdown-mode-hook
+                                                            org-mode-hook
+                                                            c-mode-hook))
+    ))
+(defun pan/init-auto-complete()
+  (use-package auto-complete
+    :defer t
+    :init
+    ;; (Auto-complete-mode enable)
+    ))
 (defun pan/init-elpy ()
   (use-package elpy
     :defer t
     :init
     (elpy-enable)
-    ))
+    )
+  )
 (defun pan/init-fcitx ()
   (use-package fcitx
     :defer t
@@ -258,11 +291,15 @@
 (setq org-agenda-file-journal (expand-file-name "journal.org" "~/workspace/org/agenda/"))
 (setq org-agenda-file-code-snippet (expand-file-name "snippet.org" "~/workspace/org/agenda/"))
 (setq org-default-notes-file (expand-file-name "gtd.org" "~/workspace/org/agenda/"))
+(setq org-default-notes-tec (expand-file-name "tec.org" "~/workspace/org/agenda/"))
  (setq org-capture-templates
             '(("t" "Todo" entry (file+headline org-agenda-file-gtd "Workspace")
                "* TODO [#B] %?\n  %i\n"
                :empty-lines 1)
               ("n" "notes" entry (file+headline org-agenda-file-note "Quick notes")
+               "* %?\n  %i\n %U"
+               :empty-lines 1)
+              ("a" "notes" entry (file+headline org-default-notes-tec "tecknology notes")
                "* %?\n  %i\n %U"
                :empty-lines 1)
               ("f" "finance" entry (file+headline org-agenda-file-finance "finance notes")
@@ -433,3 +470,7 @@
 
 (defadvice evil-search-previous (after advice-for-evil-search-previous activate)
   (evil-scroll-line-to-center (line-number-at-pos)))
+
+;; python key-binding
+;; (add-hook 'c++-mode-hook 'ycmd-mode)
+;; (setq ycmd-server-command '("python" "/home/hadoop2/ycmd/ycmd/"))
