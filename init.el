@@ -41,9 +41,9 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-		 ivy
+		 ;;ivy
   	 colors
-     (better-defaults: variables better-defaults-move-to-beginning-of-code-first t)
+     ;;(better-defaults: variables better-defaults-move-to-beginning-of-code-first t)
      emacs-lisp
      git
      ;; markdown
