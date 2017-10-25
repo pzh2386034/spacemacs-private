@@ -15,7 +15,7 @@
             ))
 (add-hook 'c++-mode-hook
           (lambda ()
-            (set (make-local-variable 'company-backends) '( auto-complete   company-gtags company-semantic company-files company-dabbrev))
+            (set (make-local-variable 'company-backends) '( auto-complete   company-gtags  company-files company-dabbrev))
             (spacemacs/set-leader-keys "sb" 'backward-sexp)
             (spacemacs/set-leader-keys "sm" 'mark-sexp)
             (spacemacs/set-leader-keys "sk" 'kill-sexp)
@@ -30,13 +30,13 @@
 (add-hook 'c++-mode-hook 'clang-format-bindings-cpp)
 
 ;; cedet semantic for c, c++
-(require 'cc-mode)
-(require 'semantic)
-(global-semanticdb-minor-mode 1)
-(global-semantic-idle-scheduler-mode 1)
-(semantic-mode 1)
-(semantic-add-system-include "~/linux/kernal")
-(semantic-add-system-include "/home/pan/thirdpart_head/boost" 'c++-mode)
+;; (require 'cc-mode)
+;; (require 'semantic)
+;; (global-semanticdb-minor-mode 1)
+;; (global-semantic-idle-scheduler-mode 1)
+;; (semantic-mode 1)
+;; (semantic-add-system-include "~/linux/kernal")
+;; (semantic-add-system-include "/home/pan/thirdpart_head/boost" 'c++-mode)
 
 (setq c-default-style "gnu")
 (setq-default tab-width 4)
