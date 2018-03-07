@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     lua
      html
      markdown
      (python :variables
@@ -68,6 +69,7 @@ values."
      finance
      php
      semantic
+     yasnippet
      (auto-complete :variables
                     Auto-complete-mode 1)
 ;;     (chinese :packages youdao-dictionary fcitx

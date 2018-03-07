@@ -38,7 +38,7 @@
 ;; (semantic-add-system-include "~/linux/kernal")
 ;; (semantic-add-system-include "/home/pan/thirdpart_head/boost" 'c++-mode)
 
-(setq c-default-style "gnu")
+(setq c-default-style "Google")
 (setq-default tab-width 4)
 ;; open whitespace-mode
 (global-set-key (kbd "C-c w") 'whitespace-mode)

@@ -2,7 +2,7 @@
 (provide 'init-keymaps)
 
 ;;; ==========================global key band=====================================
-(global-set-key (kbd "M-a") 'mark-whole-buffer)
+(global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "C-\\") 'highlight-symbol-at-point)
 ;;(global-set-key (kbd "RET") 'newline-and-indent)
@@ -30,6 +30,9 @@
 (setq make-backup-files nil)
 (spacemacs/set-leader-keys (kbd "dw") 'delete-other-windows)
 (global-set-key (kbd "C-d") 'delete-forward-char)
+(global-set-key (kbd "M-a") 'beginning-of-line)
+(global-set-key (kbd "M-e") 'end-of-line)
+;; space h space 搜索package help文档
 
 ;;(Define-key evil-insert-state-map (kbd "C-c C-t") 'ansi-term)
 ;; paste and copy system clipboard
@@ -128,6 +131,7 @@
 (load "pan_tag.el")
 (load "pan_c-c++.el")
 (load "pan_ggtags.el")
+(load "pan_yasnippet.el")
 
 
 (require 'cl)
