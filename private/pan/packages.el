@@ -50,6 +50,7 @@
             (setq TeX-show-compilation t)))
 
 
+
 (defun pan/load-yasnippet ()
   (interactive)
   (unless yas-global-mode
@@ -70,6 +71,8 @@
     ob-ipython
     company
     company-c-headers
+    yasnippet
+    yasnippet-snippets  ;; common snippets
     )
   )
 (defun pan/init-yasnippet()
@@ -86,19 +89,25 @@
                                                             org-mode-hook
                                                             c-mode-hook))
     ))
+
 (defun pan/init-auto-complete()
   (use-package auto-complete
     :defer t
     :init
     ;; (Auto-complete-mode enable)
     ))
-(defun pan/init-company-c-headers()
-  (use-package auto-complete
+(defun pan/init-yasnippet-snippets()
+  (use-package yasnippet-snippets
     :defer t
     :init
-    (add-to-list 'company-c-headers-path-system "/usr/include/c++/4.8")
-    ;; (Auto-complete-mode enable)
     ))
+;; (defun pan/init-company-c-headers()
+;;   (use-package auto-complete
+;;     :defer t
+;;     :init
+;;     (add-to-list 'company-c-headers-path-system "/usr/include/c++/4.8")
+;;     ;; (Auto-complete-mode enable)
+;;     ))
 (defun pan/init-elpy ()
   (use-package elpy
     :defer t

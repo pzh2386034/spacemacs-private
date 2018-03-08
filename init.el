@@ -69,7 +69,6 @@ values."
      finance
      php
      semantic
-     yasnippet
      (auto-complete :variables
                     Auto-complete-mode 1)
 ;;     (chinese :packages youdao-dictionary fcitx

@@ -39,6 +39,9 @@
  '(tags-revert-without-query t)
  '(vc-follow-symlinks t)
  '(web-mode-markup-indent-offset 2)
+ '(yas-snippet-dirs
+   (quote
+    ("/home/pan/.emacs.d/snippets" "/home/pan/.emacs.d/elpa/elpy-20170701.1412/snippets/" "/home/pan/.spacemacs.d/snippets")))
  '(ycmd-extra-conf-handler (quote load))
  '(ycmd-extra-conf-whitelist (quote ("~/cocos2d-x/*"))))
 (custom-set-faces
