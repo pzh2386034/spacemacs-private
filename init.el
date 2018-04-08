@@ -64,7 +64,6 @@ values."
 		 (c-c++ :variables
 						c-c++-default-mode-for-headers 'c++-mode)
      pan
-     pan-web
      (gtags :variables gtags-enable-by-default t)
      asm
      finance
@@ -72,6 +71,7 @@ values."
      semantic
      (auto-complete :variables
                     Auto-complete-mode 1)
+     pan-web
 ;;     (chinese :packages youdao-dictionary fcitx
 ;;              :variables chinese-enable-fcitx nil
 ;;              chinese-enable-youdao-dict t)

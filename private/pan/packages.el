@@ -81,6 +81,8 @@
   (use-package yasnippet
     :defer t
     :init
+    :bind (("C-x l" . yas-describe-tables)
+           )
     ))
 (defun pan/post-init-yasnippet ()
   (progn
@@ -96,6 +98,7 @@
   (use-package auto-complete
     :defer t
     :init
+    :config
     ;; (Auto-complete-mode enable)
     ))
 (defun pan/init-yasnippet-snippets()
