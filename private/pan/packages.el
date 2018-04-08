@@ -40,6 +40,7 @@
 (global-set-key (kbd "C-c s") 'clipboard-kill-ring-save)
 (global-set-key (kbd "C-c r") 'clipboard-kill-region)
 
+(spacemacs/set-leader-keys "ou" 'my-auto-update-tags-when-save)
 ;; auto truncate lines
 (setq-default toggle-truncate-line t)
 (add-hook 'LaTeX-mode-hook 
@@ -72,6 +73,7 @@
     company
     company-c-headers
     yasnippet
+    auto-yasnippet
     yasnippet-snippets  ;; common snippets
     )
   )

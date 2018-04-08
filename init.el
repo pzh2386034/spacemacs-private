@@ -64,6 +64,7 @@ values."
 		 (c-c++ :variables
 						c-c++-default-mode-for-headers 'c++-mode)
      pan
+     pan-web
      (gtags :variables gtags-enable-by-default t)
      asm
      finance
