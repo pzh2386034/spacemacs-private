@@ -6,15 +6,15 @@
   '(
     clean-aindent-mode
     css-mode
-    js2-mode
+    ;; js2-mode
     json-mode
-    web-mode
+    ;; web-mode
     angular-mode
-    ac-html
-    ac-html-angular
-    web-completion-data
-    company-web-html
-    angular-snippets
+    ;; ac-html
+    ;; ac-html-angular
+    ;; web-completion-data
+    ;; company-web-html
+    ;; angular-snippets
   )
   )
 

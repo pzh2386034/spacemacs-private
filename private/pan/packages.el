@@ -69,11 +69,11 @@
     elpy
     auto-complete
     yasnippet
-    ob-ipython
-    company
-    company-c-headers
+    ;; ob-ipython
+    ;; company
+    ;; company-c-headers
     yasnippet
-    auto-yasnippet
+    ;; auto-yasnippet
     yasnippet-snippets  ;; common snippets
     )
   )

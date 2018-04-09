@@ -69,8 +69,8 @@ values."
      finance
      php
      semantic
-     (auto-complete :variables
-                    Auto-complete-mode 1)
+     ;; (auto-complete :variables
+     ;;                Auto-complete-mode 1)
      pan-web
 ;;     (chinese :packages youdao-dictionary fcitx
 ;;              :variables chinese-enable-fcitx nil
@@ -156,12 +156,15 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
 												 monokai
-												 ;; spacemacs-dark
+                                                 darktooth
+												 spacemacs-dark
 												 ;; spacemacs-light
 												 ;; solarized-light
 												 solarized-dark
-												 ;; leuven
-												 ;; zenburn
+												 leuven
+												 zenburn
+                                                 soothe
+                                                 gotham
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
