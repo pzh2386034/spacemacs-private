@@ -18,18 +18,18 @@
   )
   )
 
-(defun pan-web/init-web-mode ()
-  (use-package web-mode
-    :init
-    :mode (("\\.erb\\'" . web-mode)
-           ("\\.mustache\\'" . web-mode)
-           ("\\.html?\\'" . web-mode)
-           ("\\.eex\\'" . web-mode)
-           ("\\.php\\'" . web-mode))
-    :config
-    ;; (add-hook 'web-mode-hook 'clean-aindent-mode)
-  )
-)
+;; (defun pan-web/init-web-mode ()
+;;   (use-package web-mode
+;;     :init
+;;     :mode (("\\.erb\\'" . web-mode)
+;;            ("\\.mustache\\'" . web-mode)
+;;            ("\\.html?\\'" . web-mode)
+;;            ("\\.eex\\'" . web-mode)
+;;            ("\\.php\\'" . web-mode))
+;;     :config
+;;     ;; (add-hook 'web-mode-hook 'clean-aindent-mode)
+;;   )
+;; )
 (defun pan-web/init-angular-mode ()
   (use-package angular-mode
     :init
@@ -52,19 +52,19 @@
 ;; (add-hook 'web-mode-hook 'clean-aindent-mode)
 ;; (add-hook 'web-mode-hook 'angular-mode)
 ;; (add-hook 'web-mode-hook 'css-mode)
-(defun pan-web/post-init-web-mode ()
-  (with-eval-after-load "web-mode"
-    (web-mode-toggle-current-element-highlight)
-    (web-mode-dom-errors-show))
-  (add-hook 'web-mode-hook 'smartparens-mode)
-  (setq company-backends-web-mode '((
-                                     ;; ac-html
-                                     ;; ac-html-angular
-                                     company-dabbrev-code
-                                     company-keywords
-                                     company-etags
-                                     company-files
-                                     company-dabbrev))))
+;; (defun pan-web/post-init-web-mode ()
+;;   (with-eval-after-load "web-mode"
+;;     (web-mode-toggle-current-element-highlight)
+;;     (web-mode-dom-errors-show))
+;;   (add-hook 'web-mode-hook 'smartparens-mode)
+;;   (setq company-backends-web-mode '((
+;;                                      ;; ac-html
+;;                                      ;; ac-html-angular
+;;                                      company-dabbrev-code
+;;                                      company-keywords
+;;                                      company-etags
+;;                                      company-files
+;;                                      company-dabbrev))))
 
 (defun pan-web/post-init-json-mode ()
   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
@@ -88,21 +88,5 @@
       (define-key global-map (kbd "RET") 'newline-and-indent))
     (add-hook 'after-init-hook 'my-pkg-init)
     ))
-
-;; (defun pan/init-angular-snippets()
-;;   (use-package angular-snippets
-;;     :defer t
-;;     :init
-;;     ))
-;; (defun pan/init-web-completion-data()
-;;   (use-package web-completion-data
-;;     :defer t
-;;     :init
-;;     ))
-;; (defun pan/init-angular-mode()
-;;   (use-package angular-mode
-;;     :defer t
-;;     :init
-;;     ))
 
 ;;; packages.el ends here

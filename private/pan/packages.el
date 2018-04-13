@@ -15,7 +15,6 @@
 (global-set-key (kbd "M-.") 'etags-select-find-tag)
 (global-set-key (kbd "M-o") 'occur)
 (global-set-key (kbd "<f3>") 'flycheck-list-errors)
-(global-set-key (kbd "M-s-o") 'multi-occur)
 (global-set-key (kbd "M-v") 'evil-paste-after)
 (global-set-key (kbd "M-n") 'next-error)
 ;;(global-set-key (kbd "M-P") 'session-jump-to-last-change)
