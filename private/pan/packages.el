@@ -74,8 +74,35 @@
     yasnippet
     ;; auto-yasnippet
     yasnippet-snippets  ;; common snippets
+    markdown-mode
     )
   )
+;;(unbind-key "M-j" evil-window-next)
+(global-set-key (kbd "M-r") 'nil)
+(defun pan/init-markdown-mode ()
+  (use-package markdown-mode
+    :init
+    :config
+    ;; (use-package moccur-edit)
+;;    (unbind-key "M-n" markdown-next-link)
+   :bind
+   (
+    ("M-r -" . org-ctrl-c-minus)
+    ("M-r h" . markdown-insert-header)
+    ("M-r 1" . markdown-insert-header-atx-1)
+    ("M-r 2" . markdown-insert-header-atx-2)
+    ("M-r 3" . markdown-insert-header-atx-3)
+    ("M-r l" . markdown-insert-link-button)
+    ("M-r u" . markdown-insert-uri)
+   ;; ("M-r t" . markdown-toc-generate-toc)
+    ("M-r t" . table-insert)
+    ("M-r c" . markdown-insert-gfm-code-block)
+    ("M-r q" . markdown-insert-blockquote)
+    ("M-r q" . markdown-insert-blockquote)
+    ("M-r i" . markdown-insert-italic)
+    ("M-r b" . markdown-insert-bold)
+   )
+))
 (defun pan/init-yasnippet()
   (use-package yasnippet
     :defer t

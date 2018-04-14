@@ -124,8 +124,10 @@ version 2015-08-21"
 
 (defun pan/now ()
   (interactive)
-  (insert (format-time-string "%D %-I:%M %p"))
+  (insert (format-time-string "%Y-%m-%d %H:%m"))
   )
+
+
 (defun pan/today ()
   (interactive)
   (insert (format-time-string "%A, %B %e, %Y"))
