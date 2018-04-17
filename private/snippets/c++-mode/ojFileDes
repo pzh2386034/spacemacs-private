@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: oj source file Description
+# key: OJ
+# --
+/***********************************************
+name: $1
+question: $2
+input: $3
+output: $4
+ques slove idea: $5
+create: $6
+date: `(format-time-string "<%Y-%m-%d>" (current-time))`
+***********************************************/

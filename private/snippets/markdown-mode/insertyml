@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: yml
+# key: yml
+# --
+---
+title: $1
+date: `(format-time-string "%Y-%m-%d %H:%m" (current-time))`
+categories:
+- ${2:spacemacs}
+tags:
+- ${3:spacemacs}
+---
+
