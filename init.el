@@ -47,8 +47,8 @@ values."
   	 colors
      ;;(better-defaults: variables better-defaults-move-to-beginning-of-code-first t)
      emacs-lisp
-     git
-     ;; markdown
+     (git :variables git-magit-status-fullscreen t)
+     markdown
      org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -70,8 +70,13 @@ values."
      finance
      php
      semantic
-     ;; (auto-complete :variables
-     ;;                Auto-complete-mode 1)
+     (auto-complete :variables
+                    auto-completion-complete-with-key-sequence "jk" 
+                    auto-completion-complete-with-key-sequence-delay 0.5 
+                    auto-completion-enable-snippets-in-popup nil 
+                    auto-completion-enable-help-tooltip t 
+                    company-tooltip-align-annotations t
+                    )
      pan-web
 ;;     (chinese :packages youdao-dictionary fcitx
 ;;              :variables chinese-enable-fcitx nil

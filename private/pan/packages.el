@@ -3,7 +3,6 @@
 
 ;;; ==========================global key band=====================================
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
-(global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "C-\\") 'highlight-symbol-at-point)
 ;;(global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "M-j") 'other-window)
@@ -49,14 +48,15 @@
             (setq TeX-save-query nil)
             (setq TeX-show-compilation t)))
 
-
+(add-to-list 'load-path "~/.spacemacs.d/private/pan")
+(require 'clean-aindent-mode)
 
 (defun pan/load-yasnippet ()
   (interactive)
   (unless yas-global-mode
     (progn
       (yas-global-mode 1)
-      (setq my-snippet-dir (expand-file-name "~/.spacemacs.d/snippets"))
+      (setq my-snippet-dir (expand-file-name "~/.spacemacs.d/private/snippets"))
       (setq yas-snippet-dirs  my-snippet-dir)
       (yas-load-directory my-snippet-dir)
       (setq yas-wrap-around-region t)))
@@ -94,7 +94,6 @@
     ("M-r 3" . markdown-insert-header-atx-3)
     ("M-r l" . markdown-insert-link-button)
     ("M-r u" . markdown-insert-uri)
-   ;; ("M-r t" . markdown-toc-generate-toc)
     ("M-r t" . table-insert)
     ("M-r c" . markdown-insert-gfm-code-block)
     ("M-r q" . markdown-insert-blockquote)
@@ -164,7 +163,6 @@
 
 ;; ======================================dired mode key-binding====================================
 ;; add `flet'
-(add-to-list 'load-path "~/.spacemacs.d/private/pan")
 (load "pan_org.el")
 (load "pan_dired.el")
 (load "pan_python.el")
