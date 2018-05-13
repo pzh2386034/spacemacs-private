@@ -2,14 +2,20 @@
 ;; learn org
 (add-hook 'org-mode-hook
           (lambda ()
+            (set (make-local-variable 'company-backends) '( auto-complete   company-files  company-dabbrev ))
             (spacemacs/set-leader-keys (kbd "os") 'org-schedule)
             (spacemacs/set-leader-keys (kbd "od") 'org-deadline)
-            ))
-(add-hook 'org-mode-hook
-          (lambda ()
-            (set (make-local-variable 'company-backends) '( auto-complete   company-files  company-dabbrev ))
+            (local-unset-key (kbd "M-l"))
+            (local-unset-key (kbd "M-n"))
+            (local-unset-key (kbd "M-j"))
+            (local-unset-key (kbd "M-k"))
+            (define-key evil-insert-state-map (kbd "M-j") 'next-line)
+            (define-key evil-insert-state-map (kbd "M-k") 'previous-line)
+            (define-key evil-insert-state-map (kbd "M-l") 'right-char)
+            (define-key evil-insert-state-map (kbd "M-h") 'left-char)
             ))
 
+(add-hook 'org-mode-hook 'org-indent-mode)
 
 (spacemacs/set-leader-keys (kbd "oc") 'org-capture)
 (spacemacs/set-leader-keys (kbd "oa") 'org-agenda)
@@ -57,14 +63,8 @@
                "* %?"
 :empty-lines 1)))
 
-(with-eval-after-load 'org
-;;(require 'org-install)
-;;(require 'org-pomodoro)
-;;(require 'ob-tangle)
-;;(org-babel-load-file (expand-file-name "literConfig.org" "/home/hadoop2/.spacemacs.d/private/pan/"))
-)
 (with-eval-after-load 'org-agenda
-(define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
-(spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
-  "." 'spacemacs/org-agenda-transient-state/body)
+  (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
+  (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
+    "." 'spacemacs/org-agenda-transient-state/body)
 )

@@ -75,8 +75,14 @@
     ;; auto-yasnippet
     yasnippet-snippets  ;; common snippets
     markdown-mode
+    lispy
     )
   )
+(defun pan/init-lispy()
+  (use-package lispy
+    :defer t
+    :init
+    :bind))
 ;;(unbind-key "M-j" evil-window-next)
 (global-set-key (kbd "M-r") 'nil)
 (defun pan/init-markdown-mode ()
@@ -99,9 +105,8 @@
     ("M-r q" . markdown-insert-blockquote)
     ("M-r q" . markdown-insert-blockquote)
     ("M-r i" . markdown-insert-italic)
-    ("M-r b" . markdown-insert-bold)
-   )
-))
+    ("M-r b" . markdown-insert-bold))
+   ))
 (defun pan/init-yasnippet()
   (use-package yasnippet
     :defer t

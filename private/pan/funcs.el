@@ -160,3 +160,37 @@ version 2015-08-21"
     (setq my-tags-updated-time (current-time))
     (my-update-tags)
     (message "updated tags after %d seconds." (- (float-time (current-time)) (float-time my-tags-updated-time))))))
+
+    (defun pan/copy-buff-file-name-as-kill (choice)
+      "Copy the buffer file name to kill-rings"
+      (interactive "cCopy Buffer Name (F) Full, (D) Directory, (N) Name, (M) MarkdownMode")
+      (let ((new-kill-string)
+            (name (if (eq major-mode 'dired-mode)
+                      (dired-get-filename)
+                      (or (buffer-file-name) "")
+            ))
+      )
+      (cond ((eq choice ?f)
+             (setq new-kill-string name)
+      )
+            ((eq choice ?d) (setq new-kill-string (file-name-directory name)))
+            ((eq choice ?n) (setq new-kill-string (file-name-nondirectory name)))
+            ((eq choice ?m) (setq new-kill-string (substring (file-name-nondirectory name) 11)))
+            (t (message "Qite"))
+            )
+      (when new-kill-string
+        (message "%s copied" new-kill-string)
+        (kill-new new-kill-string)
+      )
+      )
+   )
+
+(defun pan/dired-create-file (file )
+  "create md file: %Y-%m-%d-file.md in current dir"
+  (interactive "sInput file name: ")
+  (let (
+    (file_name (concat (format-time-string "%Y-%m-%d-") file ".md")))
+    (message "create file name : %s"  file_name)
+    (write-region "" nil file_name)
+  )
+)
