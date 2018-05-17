@@ -70,14 +70,16 @@ values."
      finance
      php
      semantic
-     (auto-complete :variables
-                    auto-completion-complete-with-key-sequence "jk" 
-                    auto-completion-complete-with-key-sequence-delay 0.5 
-                    auto-completion-enable-snippets-in-popup nil 
-                    auto-completion-enable-help-tooltip t 
-                    company-tooltip-align-annotations t
-                    )
+     ;; (auto-complete :variables
+     ;;                auto-completion-complete-with-key-sequence "jk" 
+     ;;                auto-completion-complete-with-key-sequence-delay 0.5 
+     ;;                auto-completion-enable-snippets-in-popup nil 
+     ;;                auto-completion-enable-help-tooltip t 
+     ;;                company-tooltip-align-annotations t
+     ;;                )
      pan-web
+     company
+     ;; quelpa ;; package自定义安装工具
 ;;     (chinese :packages youdao-dictionary fcitx
 ;;              :variables chinese-enable-fcitx nil
 ;;              chinese-enable-youdao-dict t)
@@ -360,6 +362,7 @@ you should place your code here."
   (define-key evil-insert-state-map (kbd "\C-e") 'evil-end-of-line)
   (define-key evil-normal-state-map (kbd "\C-e") 'evil-end-of-visual-line)
   (global-linum-mode)
+  (global-company-mode)
   )
 
 ;;(define-key global-map (kbd "c-+") 'text-scale-increase)

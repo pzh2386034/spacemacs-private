@@ -4,7 +4,7 @@
                                  auto-completion-enable-snippets-in-popup t)))
 (add-hook 'c-mode-hook
           (lambda ()
-            (set (make-local-variable 'company-backends) '( company-dabbrev-code auto-complete   company-gtags company-files company-keywords company-dabbrev))
+            (set (make-local-variable 'company-backends) '( company-dabbrev-code  company-gtags company-files company-keywords company-dabbrev))
             (spacemacs/set-leader-keys "sb" 'backward-sexp)
             (spacemacs/set-leader-keys "sm" 'mark-sexp)
             (spacemacs/set-leader-keys "sk" 'kill-sexp)
@@ -15,7 +15,7 @@
             ))
 (add-hook 'c++-mode-hook
           (lambda ()
-            (set (make-local-variable 'company-backends) '(company-dabbrev-code auto-complete   company-gtags company-keywords company-files company-dabbrev))
+            (set (make-local-variable 'company-backends) '(company-dabbrev-code  company-gtags company-c-headers company-keywords company-files company-dabbrev))
             (spacemacs/set-leader-keys "sb" 'backward-sexp)
             (spacemacs/set-leader-keys "sm" 'mark-sexp)
             (spacemacs/set-leader-keys "sk" 'kill-sexp)
@@ -24,7 +24,6 @@
             (spacemacs/set-leader-keys "fe" 'end-of-defun)
             (spacemacs/set-leader-keys "fm" 'mark-defun)
             ))
-
 
 (add-hook 'c-mode-hook 'clang-format-bindings-c)
 (add-hook 'c++-mode-hook 'clang-format-bindings-cpp)
@@ -48,7 +47,7 @@
 (add-hook 'prog-mode-hook 'clean-aindent-mode)
 ;; 自动清除多余空格，当触发保存文件
 ;;(require 'ws-butler)
-(add-hook 'c-mode-common-hook 'ws-butler-mode-hook)
+;; (add-hook 'c-mode-common-hook 'ws-butler-mode-hook)
 
 ;;(require 'yasnippet)
 ;;(yas-global-mode 1)

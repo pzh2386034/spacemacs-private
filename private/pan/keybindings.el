@@ -1,7 +1,7 @@
 ;; c c++ key-binding
 ;; key bindings
-(with-eval-after-load 'auto-complete
-  (auto-complete-mode 1))
+;; (with-eval-after-load 'auto-complete
+;;   (auto-complete-mode 1))
 ;; python key-binding
 (define-key evil-insert-state-map (kbd "M-j") 'next-line)
 (define-key evil-insert-state-map (kbd "M-k") 'previous-line)

@@ -66,11 +66,10 @@
     fcitx
     youdao-dictionary
     elpy
-    auto-complete
     yasnippet
     ;; ob-ipython
     ;; company
-    ;; company-c-headers
+    ;; (company-c-headers :location (recipe :fetcher github :repo "randomphrase/company-c-headers"))
     yasnippet
     ;; auto-yasnippet
     yasnippet-snippets  ;; common snippets
@@ -78,6 +77,27 @@
     lispy
     )
   )
+(with-eval-after-load 'company
+  (progn
+    (require 'company-c-headers)
+  )
+)
+(defun pan/init-company-c-headers()
+  (use-package company-c-headers
+    ;; :location (recipe
+    ;;            :fetcher githu
+    ;;            )
+    :defer t
+    :init
+    (add-to-list 'company-c-headers-path-system "/usr/include/c++/4.8")
+    (add-to-list 'company-c-headers-path-system "/usr/include/glib-2.0")
+    (add-to-list 'company-c-headers-path-system "/usr/include/glib-2.0/glib")
+    :config
+    (progn
+      (add-to-list 'company-backends 'company-c-headers)
+    )
+    ;; (Auto-complete-mode enable)
+    ))
 (defun pan/init-lispy()
   (use-package lispy
     :defer t
@@ -124,25 +144,17 @@
                                                             c-mode-hook))
     ))
 
-(defun pan/init-auto-complete()
-  (use-package auto-complete
-    :defer t
-    :init
-    :config
-    ;; (Auto-complete-mode enable)
-    ))
 (defun pan/init-yasnippet-snippets()
   (use-package yasnippet-snippets
     :defer t
     :init
     ))
-;; (defun pan/init-company-c-headers()
-;;   (use-package auto-complete
-;;     :defer t
-;;     :init
-;;     (add-to-list 'company-c-headers-path-system "/usr/include/c++/4.8")
-;;     ;; (Auto-complete-mode enable)
-;;     ))
+;;(spacemacs|add-company-hook c++-mode)
+;;(push 'company-keywords company-backends-org-mode)
+  ;; (setq company-backends-c++-mode '((company-dabbrev-code
+  ;;                                    company-keywords
+  ;;                                    company-etags)
+  ;;                                   company-files company-dabbrev)))
 (defun pan/init-elpy ()
   (use-package elpy
     :defer t
