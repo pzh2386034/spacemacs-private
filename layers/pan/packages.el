@@ -14,26 +14,23 @@
 
 (defconst pan-packages
   '(
-    flyspell
     yasnippet
-    yasnippet-snippets
+    ;; yasnippet-snippets
     swiper
     lispy
     counsel
+    function-args
+    company-clang
+    cc-mode
+    ;; helm-gtags
     markdown-mode
-    hungry-delete
-    elpy
+    ws-butler
+    ;; elpy
     )
   )
   "The list of Lisp packages required by the pan layer.
 
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format"
-  (defun pan/init-flyspell ()
-    (use-package flyspell
-      :init
-      :defer t
-      :bind)
-    )
 
   (defun pan/init-swiper()
     (use-package swiper
@@ -41,6 +38,29 @@
       :defer t
       :bind)
     )
+(defun pan/init-ws-butler ()
+  (use-package ws-butler
+    :init
+    :defer t
+    :bind))
+(defun pan/init-cc-mode ()
+  (use-package cc-mode
+    :init
+    :defer t
+    :bind))
+
+(defun pan/init-function-args ()
+  (use-package function-args
+    :init
+    :defer t
+    :bind))
+
+(defun pan/init-helm-gtags()
+  (use-package helm-gtags
+    :init
+    :defer t
+     )
+  )
 
   (defun pan/init-lispy()
     (use-package lispy
@@ -59,30 +79,30 @@
       :init
       :defer t
       :bind)
- (global-set-key (kbd "s-r") 'nil)
- (defun pan/init-markdown-mode ()
-  (use-package markdown-mode
-    :init
-    :config
-    ;; (use-package moccur-edit)
-;;    (unbind-key "M-n" markdown-next-link)
-   :bind
-   (
-    ("s-r -" . org-ctrl-c-minus)
-    ("s-r h" . markdown-insert-header)
-    ("s-r 1" . markdown-insert-header-atx-1)
-    ("s-r 2" . markdown-insert-header-atx-2)
-    ("s-r 3" . markdown-insert-header-atx-3)
-    ("s-r l" . markdown-insert-link-button)
-    ("s-r u" . markdown-insert-uri)
-    ("s-r t" . table-insert)
-    ("s-r c" . markdown-insert-gfm-code-block)
-    ("s-r q" . markdown-insert-blockquote)
-    ("s-r q" . markdown-insert-blockquote)
-    ("s-r i" . markdown-insert-italic)
-    ("s-r b" . markdown-insert-bold))
-   )
-  )
+;;  (global-set-key (kbd "s-r") 'nil)
+;;  (defun pan/init-markdown-mode ()
+;;   (use-package markdown-mode
+;;     :init
+;;     :config
+;;     ;; (use-package moccur-edit)
+;; ;;    (unbind-key "M-n" markdown-next-link)
+;;    :bind
+;;    (
+;;     ("s-r -" . org-ctrl-c-minus)
+;;     ("s-r h" . markdown-insert-header)
+;;     ("s-r 1" . markdown-insert-header-atx-1)
+;;     ("s-r 2" . markdown-insert-header-atx-2)
+;;     ("s-r 3" . markdown-insert-header-atx-3)
+;;     ("s-r l" . markdown-insert-link-button)
+;;     ("s-r u" . markdown-insert-uri)
+;;     ("s-r t" . table-insert)
+;;     ("s-r c" . markdown-insert-gfm-code-block)
+;;     ("s-r q" . markdown-insert-blockquote)
+;;     ("s-r q" . markdown-insert-blockquote)
+;;     ("s-r i" . markdown-insert-italic)
+;;     ("s-r b" . markdown-insert-bold))
+;;    )
+;;   )
 (defun pan/init-yasnippet()
   (use-package yasnippet
     :defer t
@@ -101,19 +121,18 @@
                                                             c-mode-hook))
     )
   )
-
-(defun pan/init-yasnippet-snippets()
-  (use-package yasnippet-snippets
-    :defer t
-    :init
-    ))
-(defun pan/init-elpy ()
-  (use-package elpy
-    :defer t
-    :init
-    (elpy-enable)
-    )
-  )
+;; (defun pan/init-yasnippet-snippets()
+;;   (use-package yasnippet-snippets
+;;     :defer t
+;;     :init
+;;     ))
+;; (defun pan/init-elpy ()
+;;   (use-package elpy
+;;     :defer t
+;;     :init
+;;     (elpy-enable)
+;;     )
+;;   )
 (defun pan/init-fcitx ()
   (use-package fcitx
     :defer t
@@ -125,11 +144,11 @@
 ;; load self define .el files
 (add-to-list 'load-path "~/.spacemacs.d/layers/pan/")
 (load "pan_org.el")
-;;(load "pan_dired.el")
+(load "pan_dired.el")
 ;;(load "pan_python.el")
-;;(load "pan_tag.el")
-;;(load "pan_c-c++.el")
-;;(load "pan_ggtags.el")
-;;(load "pan_yasnippet.el")
+(load "pan_tag.el")
+(load "pan_c-c++.el")
+(load "pan_ggtags.el")
+(load "pan_yasnippet.el")
 
 ;;; packages.el ends here
