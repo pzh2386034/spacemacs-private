@@ -29,3 +29,7 @@
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
+(with-eval-after-load 'evil
+  (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+  (define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+  )

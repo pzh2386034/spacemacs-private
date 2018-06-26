@@ -1,13 +1,15 @@
 ;; insert mode key-bindings
 
+
+
 (define-key evil-insert-state-map (kbd "s-j") 'next-line)
 (define-key evil-insert-state-map (kbd "s-k") 'previous-line)
 (define-key evil-insert-state-map (kbd "s-l") 'right-char)
 (define-key evil-insert-state-map (kbd "s-h") 'left-char)
 (define-key evil-insert-state-map (kbd "s-e") 'move-end-of-line)
 (define-key evil-insert-state-map (kbd "s-a") 'move-beginning-of-line)
-(global-set-key (kbd "s-e") 'move-end-of-line)
-(global-set-key (kbd "s-a") 'move-beginning-of-line)
+(define-key evil-normal-state-map (kbd "s-e") 'move-end-of-line)
+(define-key evil-normal-state-map (kbd "s-a") 'move-beginning-of-line)
 
 (global-set-key (kbd "s-x") 'nil)
 (global-set-key (kbd "s-x") 'helm-M-x )

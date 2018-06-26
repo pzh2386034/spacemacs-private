@@ -2,14 +2,16 @@
 (require 'cc-mode)
 (require 'semantic)
 (global-semanticdb-minor-mode 1)
+
 (global-semantic-idle-scheduler-mode 1)
 (global-semantic-highlight-func-mode 1) ;; active highlighting of first line for current tag
 (global-semantic-stickyfunc-mode 1) ;; activates mode when name of current tag will be shown in top line of buffer
 (global-semantic-idle-local-symbol-highlight-mode 1) ;; activates highlighting of local names that are the same as name of tag under cursor;
 (global-semantic-idle-scheduler-mode 1) ;; activates automatic parsing of source code in the idle time;
+(global-semantic-mru-bookmark-mode 1)
 (require 'semantic/ia)
-
-(semantic-mode 1)
+(require 'semantic/bovine/gcc)
+(global-ede-mode t)
 
 (setq-default dotspacemacs-configuration-layers
               '((auto-completion :variables
@@ -24,6 +26,7 @@
             (spacemacs/set-leader-keys "fb" 'beginning-of-defun)
             (spacemacs/set-leader-keys "fe" 'end-of-defun)
             (spacemacs/set-leader-keys "fm" 'mark-defun)
+            (semantic-mode 1)
             ))
 (add-hook 'c++-mode-hook
           (lambda ()
@@ -35,6 +38,9 @@
             (spacemacs/set-leader-keys "fb" 'beginning-of-defun)
             (spacemacs/set-leader-keys "fe" 'end-of-defun)
             (spacemacs/set-leader-keys "fm" 'mark-defun)
+            (semantic-mode 1)
+            (local-set-key (kbd "s-n") 'stagemantic-ia-fast-jump)
+            (local-set-key (kbd "s-p") 'semantic-mrub-switch-tags)
             ))
 (add-hook 'c-mode-hook 'clang-format-bindings-c)
 (add-hook 'c++-mode-hook 'clang-format-bindings-cpp)
