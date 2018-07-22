@@ -101,6 +101,7 @@
 (load "pan_tag.el")
 (load "pan_c-c++.el")
 (load "pan_ggtags.el")
+(load "pan_go.el")
 (load "pan_yasnippet.el")
 
 ;;; packages.el ends here
