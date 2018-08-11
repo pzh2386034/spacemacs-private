@@ -10,6 +10,7 @@
 (define-key evil-insert-state-map (kbd "s-a") 'move-beginning-of-line)
 (define-key evil-normal-state-map (kbd "s-e") 'move-end-of-line)
 (define-key evil-normal-state-map (kbd "s-a") 'move-beginning-of-line)
+(define-key yas-minor-mode-map (kbd "TAB") 'yas-expand-from-trigger-key)
 
 (global-set-key (kbd "s-x") 'nil)
 (global-set-key (kbd "s-x") 'helm-M-x )
