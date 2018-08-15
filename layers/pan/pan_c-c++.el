@@ -4,6 +4,7 @@
 (global-semanticdb-minor-mode 1)
 
 (global-semantic-idle-scheduler-mode 1)
+(semantic-mode 1)
 (global-semantic-highlight-func-mode 1) ;; active highlighting of first line for current tag
 (global-semantic-stickyfunc-mode 1) ;; activates mode when name of current tag will be shown in top line of buffer
 (global-semantic-idle-local-symbol-highlight-mode 1) ;; activates highlighting of local names that are the same as name of tag under cursor;

@@ -5,3 +5,6 @@
 ;;(yas/global-mode 1)
 ;;(yas/minor-mode-on) ;; 以mini-mode打开，配合主mode
 (global-set-key (kbd "M-y") 'yas-new-snippet)
+(eval-after-load 'yasnippet
+  '(add-to-list 'yas-snippet-dirs "~/.spacemacs.d/private/yasnippet-snippets/snippets/")
+  )
