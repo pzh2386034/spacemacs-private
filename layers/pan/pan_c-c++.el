@@ -95,16 +95,14 @@
 ;;(add-hook 'c-mode-common-hook 'ws-butler-mode-hook)
 (add-hook 'prog-mode-hook #'ws-butler-mode)
 
-;;(require 'yasnippet)
-;;(yas-global-mode 1)
-;; Package: smartparens
-;;(require 'smartparens-config)
-;;(show-smartparens-global-mode +1)
-;;(smartparens-global-mode 1)
-
-;; when you press RET, the curly braces automatically
-;; add another newline
 (global-set-key (kbd "<f5>") (lambda ()
                                (interactive)
                                (setq-local compilation-read-command nil)
                                (call-interactively 'compile)))
+;; 保存时自动排版文件
+(defun my-c++-mode-before-save-hook ()
+  (when (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode) )
+    (message "Begin to format buffer by .clang-format!")
+    (pan/clang-format-buffer-smart)))
+
+(add-hook 'before-save-hook #'my-c++-mode-before-save-hook)

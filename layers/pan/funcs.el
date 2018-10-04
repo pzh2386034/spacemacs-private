@@ -184,3 +184,9 @@ version 2015-08-21"
   )
 )
 
+;; 调用该函数在自动保存c-c++文件时，会检测.clang-format函数，有则自动排版，没有则不
+(defun pan/clang-format-buffer-smart ()
+  "Reformat buffer if .clang-format exists in the projectile root."
+  (interactive)
+  (when (f-exists? (expand-file-name ".clang-format" (projectile-project-root)))
+    (clang-format-buffer)))
