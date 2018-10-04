@@ -14,18 +14,19 @@
 
 (defconst pan-packages
   '(
-    yasnippet
     ;; yasnippet-snippets
     swiper
     lispy
     counsel
     function-args
-    company-clang
     cc-mode
     ;; helm-gtags
-    markdown-mode
     ws-butler
     anaconda-mode
+    company-irony
+    irony
+    flycheck-irony
+    irony-eldoc
     ;; elpy
     )
   )
@@ -92,7 +93,23 @@
     (setq  fcitx-active-evil-states '(insert emacs hybrid))
     ))
 )
+(defun pan/init-irony ()
+  (use-package irony
+    :defer t
+    :init))
 
+(defun pan/init-company-irony ()
+  (use-package company-irony
+    :defer t
+    :init))
+(defun pan/init-flycheck-irony ()
+  (use-package flycheck-irony
+    :defer t
+    :init))
+(defun pan/init-irony-eldoc ()
+  (use-package irony-eldoc
+    :defer t
+    :init))
 ;; load self define .el files
 (add-to-list 'load-path "~/.spacemacs.d/layers/pan/")
 (load "pan_org.el")
@@ -103,5 +120,6 @@
 (load "pan_ggtags.el")
 (load "pan_go.el")
 (load "pan_yasnippet.el")
+;; (load "pan_irony.el")
 
 ;;; packages.el ends here

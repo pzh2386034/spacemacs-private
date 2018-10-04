@@ -13,13 +13,17 @@
 (require 'semantic/ia)
 (require 'semantic/bovine/gcc)
 (global-ede-mode t)
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
 
 (setq-default dotspacemacs-configuration-layers
               '((auto-completion :variables
                                  auto-completion-enable-snippets-in-popup t)))
 (add-hook 'c-mode-hook
           (lambda ()
-            (set (make-local-variable 'company-backends) '(company-semantic company-c-headers company-dabbrev-code  company-gtags company-files company-keywords company-dabbrev))
+            (set (make-local-variable 'company-backends) '(company-semantic company-c-headers company-clang company-dabbrev-code  company-gtags company-files company-keywords company-dabbrev))
             (spacemacs/set-leader-keys "sb" 'backward-sexp)
             (spacemacs/set-leader-keys "sm" 'mark-sexp)
             (spacemacs/set-leader-keys "sk" 'kill-sexp)
@@ -27,11 +31,12 @@
             (spacemacs/set-leader-keys "fb" 'beginning-of-defun)
             (spacemacs/set-leader-keys "fe" 'end-of-defun)
             (spacemacs/set-leader-keys "fm" 'mark-defun)
+            (setq company-clang-arguments '("-std=c++1z"))
             (semantic-mode 1)
             ))
 (add-hook 'c++-mode-hook
           (lambda ()
-            (set (make-local-variable 'company-backends) '(company-semantic company-c-headers  company-dabbrev-code  company-gtags company-c-headers company-keywords company-files company-dabbrev))
+            (set (make-local-variable 'company-backends) '(company-clang company-c-headers  company-dabbrev-code  company-gtags company-c-headers company-keywords company-files company-dabbrev))
             (spacemacs/set-leader-keys "sb" 'backward-sexp)
             (spacemacs/set-leader-keys "sm" 'mark-sexp)
             (spacemacs/set-leader-keys "sk" 'kill-sexp)
@@ -75,7 +80,7 @@
   (add-to-list 'company-c-headers-path-system "/usr/include/c++/4.2.1")
 )
 ;; cedet semantic for c, c++
-;; (semantic-add-system-include "~/linux/kernal")
+(semantic-add-system-include "/usr/include" 'c++-mode)
 ;; (semantic-add-system-include "/home/pan/thirdpart_head/boost" 'c++-mode)
 
 ;; (setq c-default-style "Google")
