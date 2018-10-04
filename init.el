@@ -51,7 +51,9 @@ values."
      spell-checking
      syntax-checking
      version-control
-     c-c++
+     (c-c++ :variables
+            c-c++-default-mode-for-headers 'c++-mode
+            c-c++-enable-clang-support t)
      pan
      (gtags :variable gtags-enable-by-default t)
      (auto-completion :variables
@@ -326,6 +328,13 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; (put 'helm-make-build-dir 'safe-local-variable 'stringp)
+  ;; (push '("C" "h") projectile-other-file-alist)
+  (c-add-style "mystyle"
+               '((c-basic-offset . 2)
+                 (c-offsets-alist
+                  (defun-open . 0))))
+  (push '(other . "k&r") c-default-style)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
