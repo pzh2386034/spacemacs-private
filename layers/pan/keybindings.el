@@ -17,7 +17,7 @@
 ;; (global-set-key (kbd "s-w") 'nil)
 ;; (global-set-key (kbd "s-W") 'nil)
 (global-set-key (kbd "s-b") 'split-window-below-and-focus)
-(global-set-key (kbd "s-n") 'split-window-right-and-focus)
+(global-set-key (kbd "s-r") 'split-window-right-and-focus)
 (global-set-key (kbd "s-o") 'occur)
 (global-set-key (kbd "C-c t") 'terminal)
 (global-set-key (kbd "C-c T") 'named-term)
