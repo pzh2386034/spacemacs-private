@@ -33,3 +33,12 @@
   (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
   (define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
   )
+
+(setq dashboard-items '((recents . 3)
+                        (projects . 5)
+                        (bookmarks . 5)
+                        (agenda . 5)
+                        (registers . 5)))
+(setq dashboard-banner-logo-title "Hi, pan! Welcome.")
+(setq show-week-agenda-p t) ;;show agenda for the upcoming seven days
+(setq dashboard-startup-banner nil)

@@ -27,6 +27,7 @@
     irony
     flycheck-irony
     irony-eldoc
+    dashboard
     ;; elpy
     )
   )
@@ -34,6 +35,14 @@
 
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format"
 
+(defun pan/init-dashboard()
+  (use-package dashboard
+    :init
+    :ensure t
+    :config
+    (dashboard-setup-startup-hook)
+    )
+  )
   (defun pan/init-swiper()
     (use-package swiper
       :init
