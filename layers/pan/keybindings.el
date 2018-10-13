@@ -100,7 +100,7 @@
   (define-key c-mode-map (kbd "s-g t") 'helm-gtags-tags-in-this-function)
   (define-key c-mode-map (kbd "s-g k") 'helm-gtags-show-stack)
   (define-key c-mode-map (kbd "s-g a") 'helm-gtags-clear-stack)
-  (define-key c-mode-map (kbd "s-h d") 'helm-ag)
+  ;; (define-key c-mode-map (kbd "s-h d") 'helm-ag)
   (define-key c-mode-map (kbd "s-h t") 'helm-ag-this-file)
   (define-key c-mode-map (kbd "s-h b") 'helm-ag-buffers)
   (define-key c-mode-map (kbd "s-h P") 'helm-ag-project-root)
@@ -110,6 +110,8 @@
   (define-key c-mode-map (kbd "s-h p") 'helm-do-ag-project-root)
   (define-key c-mode-map (kbd "s-h c") 'helm-ag-clear-stack)
   (define-key c-mode-map (kbd "s-h o") 'helm-ag-pop-stack)
+  (define-key c-mode-map (kbd "s-h d") 'helm-dash)
+  (define-key c-mode-map (kbd "s-h a") 'helm-dash-at-point)
 
   (define-key c++-mode-map (kbd "s-g s") 'helm-gtags-select)
   (define-key c++-mode-map (kbd "s-g r") 'helm-gtags-find-rtag)
@@ -134,3 +136,5 @@
   (define-key c++-mode-map (kbd "s-h c") 'helm-ag-clear-stack)
   (define-key c++-mode-map (kbd "s-h o") 'helm-ag-pop-stack)
   )
+
+;; set key binding for dash
