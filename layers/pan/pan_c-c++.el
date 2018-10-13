@@ -1,21 +1,22 @@
 
 (require 'cc-mode)
-(require 'semantic)
-(global-semanticdb-minor-mode 1)
+;; (require 'semantic)
+;; (global-semanticdb-minor-mode 1)
 
-(global-semantic-idle-scheduler-mode 1)
-(semantic-mode 1)
-(global-semantic-highlight-func-mode 1) ;; active highlighting of first line for current tag
-(global-semantic-stickyfunc-mode 1) ;; activates mode when name of current tag will be shown in top line of buffer
-(global-semantic-idle-local-symbol-highlight-mode 1) ;; activates highlighting of local names that are the same as name of tag under cursor;
-(global-semantic-idle-scheduler-mode 1) ;; activates automatic parsing of source code in the idle time;
-(global-semantic-mru-bookmark-mode 1)
-(require 'semantic/ia)
-(require 'semantic/bovine/gcc)
-(global-ede-mode t)
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+;; (global-semantic-idle-scheduler-mode 1)
+;; (semantic-mode 1)
+;; (global-semantic-highlight-func-mode 1) ;; active highlighting of first line for current tag
+;; (global-semantic-stickyfunc-mode 1) ;; activates mode when name of current tag will be shown in top line of buffer
+;; (global-semantic-idle-local-symbol-highlight-mode 1) ;; activates highlighting of local names that are the same as name of tag under cursor;
+;; (global-semantic-idle-scheduler-mode 1) ;; activates automatic parsing of source code in the idle time;
+;; (global-semantic-mru-bookmark-mode 1)
+;; (require 'semantic/ia)
+;; (require 'semantic/bovine/gcc)
+;; (global-ede-mode t)
+;; (add-hook 'c++-mode-hook 'irony-mode)
+;; (add-hook 'c-mode-hook 'irony-mode)
+;; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+;; (semantic-add-system-include "/usr/include" 'c++-mode)
 
 
 (setq-default dotspacemacs-configuration-layers
@@ -59,7 +60,6 @@
   (add-to-list 'company-c-headers-path-system "/usr/include/c++/4.2.1")
 )
 ;; cedet semantic for c, c++
-(semantic-add-system-include "/usr/include" 'c++-mode)
 ;; (semantic-add-system-include "/home/pan/thirdpart_head/boost" 'c++-mode)
 
 ;; (setq c-default-style "Google")
