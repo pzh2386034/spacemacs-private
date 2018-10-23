@@ -44,6 +44,7 @@ values."
      git
      go
      markdown
+     (cmake:variables cmake-enable-cmake-ide-support t)
      (org :variables org-enable-github-support t)
      org
      ;; (shell :variables

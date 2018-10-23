@@ -21,6 +21,7 @@
 (spacemacs/set-leader-keys (kbd "oa") 'org-agenda)
 (setq org-agenda-files '("~/workspace/org/agenda/"))
 (setq org-agenda-dir '("~/workspace/org/agenda/"))
+(setq org-dir '("~/workspace/org/"))
 
 (setq org-agenda-file-note (expand-file-name "notes.org" "~/workspace/org/agenda/"))
 
@@ -63,8 +64,42 @@
                "* %?"
 :empty-lines 1)))
 
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "s-g t") 'org-set-tags)
+  )
+
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
+  (define-key org-mode-map (kbd "s-g t") 'org-set-tags)
   (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
     "." 'spacemacs/org-agenda-transient-state/body)
 )
+(defun imalison:join-paths (root &rest dirs)
+  (let ((result root))
+    (cl-loop for dir in dirs do
+             (setq result (concat (file-name-as-directory result) dir)))
+    result))
+(defvar imalison:created-property-string
+  "
+  :PROPERTIES:
+  :CREATED: %U
+  :END:")
+
+
+;;(setq org-projectile-projects-file (expand-file-name "project.org" "~/workspace/org/agenda/"))
+          ;; org-projectile-capture-template
+          ;; (format "%s%s" "* TODO %?" imalison:created-property-string))
+    ;;(add-to-list 'org-capture-templates
+   ;;              (org-projectile-project-todo-entry
+     ;;             :capture-character "p"
+       ;;           :capture-heading "Linked Project TODO"))
+    ;;(add-to-list 'org-capture-templates
+      ;;           (org-projectile-project-todo-entry
+        ;;          :capture-character "m"))
+
+;;(require 'org-projectile)
+(setq-default dotspacemacs-configuration-layers
+              '((org :variables org-projectile-file "TODOS.org")))
+;; (with-eval-after-load 'org-agenda
+;;   (require 'org-projectile)
+;;   (push (org-projectile:todo-files) org-agenda-files))

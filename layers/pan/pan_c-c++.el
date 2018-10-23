@@ -35,7 +35,7 @@
             ;; (setq company-clang-arguments '("-std=c++1z"))
             (semantic-mode 1)
             (local-set-key (kbd "s-n") 'stagemantic-ia-fast-jump)
-            (local-set-key (kbd "s-p") 'semantic-mrub-switch-tags)
+            ;; (local-set-key (kbd "s-p") 'semantic-mrub-switch-tags)
             )
           )
 (add-hook 'c++-mode-hook
@@ -50,7 +50,7 @@
             (spacemacs/set-leader-keys "fm" 'mark-defun)
             (semantic-mode 1)
             (local-set-key (kbd "s-n") 'stagemantic-ia-fast-jump)
-            (local-set-key (kbd "s-p") 'semantic-mrub-switch-tags)
+            ;; (local-set-key (kbd "s-p") 'semantic-mrub-switch-tags)
             )
           )
 (add-hook 'c-mode-hook 'clang-format-bindings-c)

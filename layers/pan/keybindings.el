@@ -11,6 +11,16 @@
 (define-key evil-normal-state-map (kbd "s-e") 'move-end-of-line)
 (define-key evil-normal-state-map (kbd "s-a") 'move-beginning-of-line)
 (define-key yas-minor-mode-map (kbd "TAB") 'yas-expand-from-trigger-key)
+(global-unset-key (kbd "s-p"))
+(global-set-key (kbd "s-p s") 'org-schedule)
+(global-set-key (kbd "s-p d") 'org-deadline)
+(global-set-key (kbd "s-p a") 'org-agenda)
+(global-set-key (kbd "s-p c") 'org-capture)
+(global-set-key (kbd "s-p l") 'org-agenda-list)
+(global-set-key (kbd "s-p v") 'org-tags-view)
+;; (with-eval-after-load 'org-projectile
+;;   (global-set-key (kbd "s-p p") 'org-projectile/capture)
+;;   (global-set-key (kbd "s-p d") 'org-projectile/goto-todos))
 
 (global-set-key (kbd "s-x") 'nil)
 (global-set-key (kbd "s-x") 'helm-M-x )
@@ -21,11 +31,14 @@
 (global-set-key (kbd "s-o") 'occur)
 (global-set-key (kbd "C-c t") 'terminal)
 (global-set-key (kbd "C-c T") 'named-term)
+(global-unset-key (kbd "C-i"))
 
 ;;; comment keybindings
 (with-eval-after-load 'evil
   (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
   (define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+  (define-key evil-normal-state-map (kbd "C-i") 'evil-jump-forward)
+  (define-key evil-visual-state-map (kbd "C-i") 'evil-jump-forward)
   )
 
 (defun clang-format-bindings-c ()
@@ -124,8 +137,8 @@
   (define-key c++-mode-map (kbd "s-g d") 'helm-gtags-dwim)
   (define-key c++-mode-map (kbd "s-g t") 'helm-gtags-tags-in-this-function)
   (define-key c++-mode-map (kbd "s-g k") 'helm-gtags-show-stack)
-  (define-key c++-mode-map (kbd "s-g a") 'helm-gtags-clear-stack)
-  (define-key c++-mode-map (kbd "s-h d") 'helm-ag)
+  ;; (define-key c++-mode-map (kbd "s-g a") 'helm-gtags-clear-stack)
+  ;; (define-key c++-mode-map (kbd "s-h d") 'helm-ag)
   (define-key c++-mode-map (kbd "s-h t") 'helm-ag-this-file)
   (define-key c++-mode-map (kbd "s-h b") 'helm-ag-buffers)
   (define-key c++-mode-map (kbd "s-h P") 'helm-ag-project-root)
@@ -135,6 +148,8 @@
   (define-key c++-mode-map (kbd "s-h p") 'helm-do-ag-project-root)
   (define-key c++-mode-map (kbd "s-h c") 'helm-ag-clear-stack)
   (define-key c++-mode-map (kbd "s-h o") 'helm-ag-pop-stack)
+  (define-key c++-mode-map (kbd "s-h d") 'helm-dash)
+  (define-key c++-mode-map (kbd "s-h a") 'helm-dash-at-point)
   )
 
 ;; set key binding for dash
