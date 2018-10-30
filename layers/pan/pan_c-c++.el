@@ -18,6 +18,8 @@
 ;; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 ;; (semantic-add-system-include "/usr/include" 'c++-mode)
 
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.hpp\\'" . c++-mode))
 
 (setq-default dotspacemacs-configuration-layers
               '((auto-completion :variables
