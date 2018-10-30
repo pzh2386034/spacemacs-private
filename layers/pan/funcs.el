@@ -190,3 +190,17 @@ version 2015-08-21"
   (interactive)
   (when (f-exists? (expand-file-name ".clang-format" (projectile-project-root)))
     (clang-format-buffer)))
+
+;;
+(defun pan/org-todo-at-date (date)
+  (interactive (list (org-time-string-to-time (org-read-date))))
+  (cl-flet ((org-current-effective-time (&rest t) date)
+            (org-today (&rest r) (time-to-days date)))
+    (cond ((eq major-mode 'org-mode) (org-todo))
+          ((eq major-mode 'org-agenda-mode) (org-agenda-mode)))))
+
+(defun pan/org-agenda-done (&optional arg)
+  "Mark current TODO as done.
+This changes the line at point, all other lines in the agenda referring to the same tree node, and the headline of the tree node in the org-mode file"
+  (interactive "P")
+  (org-agenda-todo "DONE"))
