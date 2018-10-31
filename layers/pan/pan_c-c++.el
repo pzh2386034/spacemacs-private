@@ -26,7 +26,7 @@
                                  auto-completion-enable-snippets-in-popup t)))
 (add-hook 'c-mode-hook
           (lambda ()
-            (set (make-local-variable 'company-backends) '(company-semantic company-c-headers company-clang company-dabbrev-code  company-gtags company-files company-keywords company-dabbrev))
+            (set (make-local-variable 'company-backends) '(company-clang company-c-headers  company-dabbrev-code  company-gtags company-files company-keywords company-dabbrev))
             (spacemacs/set-leader-keys "sb" 'backward-sexp)
             (spacemacs/set-leader-keys "sm" 'mark-sexp)
             (spacemacs/set-leader-keys "sk" 'kill-sexp)
