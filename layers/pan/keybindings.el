@@ -12,6 +12,8 @@
 (define-key evil-normal-state-map (kbd "s-a") 'move-beginning-of-line)
 (define-key yas-minor-mode-map (kbd "TAB") 'yas-expand-from-trigger-key)
 (global-unset-key (kbd "s-p"))
+(global-unset-key (kbd "s-n"))
+(global-unset-key (kbd "s-m"))
 (global-set-key (kbd "s-p s") 'org-schedule)
 (global-set-key (kbd "s-p d") 'org-deadline)
 (global-set-key (kbd "s-p a") 'org-agenda)

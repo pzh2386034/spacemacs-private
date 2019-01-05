@@ -29,12 +29,20 @@
     irony-eldoc
     dashboard
     ;; elpy
+    web-beautify
     )
   )
   "The list of Lisp packages required by the pan layer.
 
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format"
 
+(defun pan/init-web-beautify()
+  (use-package web-beautify
+    :init
+    :ensure t
+    :config
+    )
+)
 (defun pan/init-dashboard()
   (use-package dashboard
     :init
@@ -129,6 +137,7 @@
 (load "pan_ggtags.el")
 (load "pan_go.el")
 (load "pan_yasnippet.el")
+(load "pan_html.el")
 ;; (load "pan_irony.el")
 
 ;;; packages.el ends here
