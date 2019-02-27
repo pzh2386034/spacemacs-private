@@ -84,6 +84,8 @@
 (defun my-c++-mode-before-save-hook ()
   (when (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode) )
     (message "Begin to format buffer by .clang-format!")
-    (pan/clang-format-buffer-smart)))
+    (pan/clang-format-buffer-smart)
+    (delete-blank-lines)
+    (delete-trailing-whitespace)))
 
 (add-hook 'before-save-hook #'my-c++-mode-before-save-hook)
