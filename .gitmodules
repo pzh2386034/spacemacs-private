@@ -1,3 +1,6 @@
 [submodule "private/yasnippet-snippets"]
 	path = private/yasnippet-snippets
 	url = https://github.com/AndreaCrotti/yasnippet-snippets.git
+[submodule "layers/pan/awesome-pair"]
+	path = layers/pan/awesome-pair
+	url = https://github.com/manateelazycat/awesome-pair.git

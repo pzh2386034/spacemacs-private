@@ -139,5 +139,6 @@
 (load "pan_yasnippet.el")
 (load "pan_html.el")
 ;; (load "pan_irony.el")
+(load "awesome-pair/awesome-pair.el")
 
 ;;; packages.el ends here
