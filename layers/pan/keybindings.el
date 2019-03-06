@@ -207,3 +207,19 @@
 (define-key awesome-pair-mode-map (kbd "M-p") 'awesome-pair-jump-right)
 (define-key awesome-pair-mode-map (kbd "M-n") 'awesome-pair-jump-left)
 (define-key awesome-pair-mode-map (kbd "M-:") 'awesome-pair-jump-out-pair-and-newline)
+
+;; symbol-overlay
+;; Or you may prefer to overwrite the keymap
+
+;; (let ((map (make-sparse-keymap)))
+;;   (define-key map (kbd "key1") 'command-1)
+;;   (define-key map (kbd "key2") 'command-2)
+;;   (setq symbol-overlay-map map))
+(require 'symbol-overlay)
+(setq symbol-overlay-mode 1)
+(global-set-key (kbd "M-i") 'symbol-overlay-put)
+(global-set-key (kbd "M-n") 'symbol-overlay-switch-forward)
+(global-set-key (kbd "M-p") 'symbol-overlay-switch-backward)
+(global-set-key (kbd "M-c") 'symbol-overlay-remove-all)
+(define-key symbol-overlay-map (kbd "<") 'symbol-overlay-switch-first)
+(define-key symbol-overlay-map (kbd ">") 'symbol-overlay-switch-last)

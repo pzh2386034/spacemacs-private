@@ -30,6 +30,7 @@
     dashboard
     ;; elpy
     web-beautify
+    symbol-overlay
     )
   )
   "The list of Lisp packages required by the pan layer.
@@ -59,6 +60,11 @@
     )
 (defun pan/init-anaconda-mode ()
   (use-package anaconda-mode-installation-directory
+    :init
+    :defer t
+    :bind))
+(defun pan/init-symbol-overlay()
+  (use-package symbol-overlay
     :init
     :defer t
     :bind))

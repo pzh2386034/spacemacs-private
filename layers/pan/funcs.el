@@ -204,3 +204,22 @@ version 2015-08-21"
 This changes the line at point, all other lines in the agenda referring to the same tree node, and the headline of the tree node in the org-mode file"
   (interactive "P")
   (org-agenda-todo "DONE"))
+
+;; symbol-overlay
+(defun pan/symbol-overlay-switch-first ()
+  (interactive)
+  (let* ((symbol (symbol-overlay-get-symbol))
+         (keyword (symbol-overlay-assoc symbol))
+         (a-symbol (car keyword))
+         (before (symbol-overlay-get-list a-symbol 'car))
+         (count (length before)))
+    (symbol-overlay-jump-call 'symbol-overlay-basic-jump (- count))))
+
+(defun pan/symbol-overlay-switch-last ()
+  (interactive)
+  (let* ((symbol (symbol-overlay-get-symbol))
+         (keyword (symbol-overlay-assoc symbol))
+         (a-symbol (car keyword))
+         (after (symbol-overlay-get-list a-symbol 'cdr))
+         (count (length after)))
+    (symbol-overlay-jump-call 'symbol-overlay-basic-jump (- count 1))))
