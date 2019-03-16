@@ -4,3 +4,6 @@
 [submodule "layers/pan/awesome-pair"]
 	path = layers/pan/awesome-pair
 	url = https://github.com/manateelazycat/awesome-pair.git
+[submodule "layers/pan/awesome-tab"]
+	path = layers/pan/awesome-tab
+	url = https://github.com/manateelazycat/awesome-tab.git

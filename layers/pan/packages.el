@@ -31,12 +31,17 @@
     ;; elpy
     web-beautify
     symbol-overlay
+    emmet-mode
     )
   )
   "The list of Lisp packages required by the pan layer.
 
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format"
-
+(defun pan/init-emmet-mode()
+  (use-package emmet-mode
+    :init
+    :ensure t
+    :config))
 (defun pan/init-web-beautify()
   (use-package web-beautify
     :init
